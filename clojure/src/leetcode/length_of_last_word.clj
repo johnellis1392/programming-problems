@@ -1,4 +1,4 @@
-(ns length-of-last-word
+(ns leetcode.length-of-last-word
   (:require [clojure.string :as str]))
 
 (defn length-of-last-word [s]

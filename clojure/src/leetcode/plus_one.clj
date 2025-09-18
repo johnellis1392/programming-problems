@@ -1,4 +1,4 @@
-(ns plus-one)
+(ns leetcode.plus-one)
 
 (defn plus-one
   ([v] (->> v reverse (plus-one 1) reverse))

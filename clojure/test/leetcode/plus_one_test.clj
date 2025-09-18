@@ -1,6 +1,6 @@
-(ns plus-one-test
+(ns leetcode.plus-one-test
   (:require [clojure.test :refer [deftest testing is]]
-            [plus-one :refer [plus-one]]))
+            [leetcode.plus-one :refer [plus-one]]))
 
 (deftest plus-one-test
   (testing "basic"

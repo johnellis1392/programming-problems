@@ -1,4 +1,4 @@
-(ns day02
+(ns aoc.aoc2023.day02
   (:require [clojure.string :as str]))
 
 
@@ -78,7 +78,7 @@
    (reduce aggregate-rolls [0 0 0])
    (reduce * 1)))
 
-(defn part2 [games] 
+(defn part2 [games]
   (->>
    games
    (map power-set)

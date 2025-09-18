@@ -1,6 +1,6 @@
-(ns length-of-last-word-test
+(ns leetcode.length-of-last-word-test
   (:require [clojure.test :refer [deftest testing is]]
-            [length-of-last-word :refer [length-of-last-word]]))
+            [leetcode.length-of-last-word :refer [length-of-last-word]]))
 
 (deftest length-of-last-word-test
   (testing "basic"
