@@ -1,5 +1,0 @@
-package aoc2015
-
-
-
-
