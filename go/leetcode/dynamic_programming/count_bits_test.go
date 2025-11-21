@@ -32,3 +32,18 @@ func TestCountBits(t *testing.T) {
 		assertEquals([]int{0, 1, 1, 2, 1, 2, 2, 3, 1, 2, 2, 3, 2, 3, 3, 4, 1}, countBits(16))
 	})
 }
+
+func BenchmarkCountBits(b *testing.B) {
+	input := 127
+	b.Run("Benchmark new solution", func(b *testing.B) {
+		for b.Loop() {
+			countBits(input)
+		}
+	})
+
+	b.Run("Benchmark old solution", func(b *testing.B) {
+		for b.Loop() {
+			countBits_OLD(input)
+		}
+	})
+}

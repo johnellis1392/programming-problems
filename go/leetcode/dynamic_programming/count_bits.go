@@ -1,5 +1,7 @@
 package dynamicprogramming
 
+import "math"
+
 /*
 0 0
 1 1
@@ -43,21 +45,21 @@ func countBits(n int) []int {
 	return dp
 }
 
-// func countBits(n int) []int {
-// 	switch n {
-// 	case 0:
-// 		return []int{0}
-// 	case 1:
-// 		return []int{0, 1}
-// 	}
-// 	dp := make([]int, n+1)
-// 	dp[0] = 0
-// 	dp[1] = 1
-// 	dp[2] = 1
-// 	for i := 2; i <= n; i++ {
-// 		bracket := math.Floor(math.Log2(float64(i)))
-// 		mask := math.Round(math.Pow(2.0, bracket)) - 1
-// 		dp[i] = dp[i&int(mask)] + 1
-// 	}
-// 	return dp
-// }
+func countBits_OLD(n int) []int {
+	switch n {
+	case 0:
+		return []int{0}
+	case 1:
+		return []int{0, 1}
+	}
+	dp := make([]int, n+1)
+	dp[0] = 0
+	dp[1] = 1
+	dp[2] = 1
+	for i := 2; i <= n; i++ {
+		bracket := math.Floor(math.Log2(float64(i)))
+		mask := math.Round(math.Pow(2.0, bracket)) - 1
+		dp[i] = dp[i&int(mask)] + 1
+	}
+	return dp
+}
