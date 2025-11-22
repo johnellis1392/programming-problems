@@ -3,23 +3,11 @@ package dynamicprogramming
 import "testing"
 
 func TestMinCostClimbingStairs(t *testing.T) {
-	assertEquals := func(expected, actual int) {
-		if expected != actual {
-			t.Errorf("Failed: %v != %v", actual, expected)
-		}
+	testCases := []testCase[[]int, int]{
+		{[]int{10, 15, 20}, 15},
+		{[]int{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}, 6},
 	}
-
-	t.Run("Example 1", func(t *testing.T) {
-		input := []int{10, 15, 20}
-		expected := 15
-		assertEquals(expected, minCostClimbingStairs(input))
-	})
-
-	t.Run("Example 2", func(t *testing.T) {
-		input := []int{1, 100, 1, 1, 1, 100, 1, 1, 100, 1}
-		expected := 6
-		assertEquals(expected, minCostClimbingStairs(input))
-	})
+	runAllTestCases(t, testCases, minCostClimbingStairs)
 }
 
 func BenchmarkMinCostClimbingStairs(b *testing.B) {

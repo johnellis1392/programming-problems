@@ -1,30 +1,21 @@
 package dynamicprogramming
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestIsSubsequence(t *testing.T) {
-	assertTrue := func(a bool) {
-		if a != true {
-			t.Errorf("Expected true, but got false")
-		}
+	testCases := []testCase[[]string, bool]{
+		{[]string{"abc", "ahbgdc"}, true},
+		{[]string{"axc", "ahbgdc"}, false},
+		{[]string{"bb", "ahbgdc"}, false},
 	}
 
-	assertFalse := func(a bool) {
-		if a != false {
-			t.Errorf("Expected false, but got true")
-		}
-	}
-
-	t.Run("Example 1", func(t *testing.T) {
-		assertTrue(isSubsequence("abc", "ahbgdc"))
-	})
-
-	t.Run("Example 2", func(t *testing.T) {
-		assertFalse(isSubsequence("axc", "ahbgdc"))
-	})
-
-	t.Run("Example 3", func(t *testing.T) {
-		assertFalse(isSubsequence("bb", "ahbgdc"))
+	runAllTestsFunc(t, testCases, func(tc testCase[[]string, bool]) bool {
+		return isSubsequence(tc.input[0], tc.input[1]) == tc.expected
+	}, func(tc testCase[[]string, bool]) string {
+		return fmt.Sprintf("Failed: Expected %v, but got %v", tc.expected, !tc.expected)
 	})
 }
 

@@ -3,23 +3,12 @@ package dynamicprogramming
 import "testing"
 
 func TestFibonacciNumber(t *testing.T) {
-	assertEquals := func(expected, actual int) {
-		if expected != actual {
-			t.Errorf("Failed: %v != %v", actual, expected)
-		}
+	testCases := []testCase[int, int]{
+		{2, 1},
+		{3, 2},
+		{4, 3},
 	}
-
-	t.Run("Example 1", func(t *testing.T) {
-		assertEquals(1, fib(2))
-	})
-
-	t.Run("Example 2", func(t *testing.T) {
-		assertEquals(2, fib(3))
-	})
-
-	t.Run("Example 3", func(t *testing.T) {
-		assertEquals(3, fib(4))
-	})
+	runAllTestCases(t, testCases, fib)
 }
 
 func BenchmarkFib(b *testing.B) {
